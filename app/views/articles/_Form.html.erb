@@ -1,0 +1,23 @@
+
+
+<%= form_with model: @article do |form| %>
+  <div>
+    <%= form.label :Enter_Title_value%><br>
+    <%= form.text_field :title %>
+    <% @article.errors.full_messages_for(:title).each do |message| %>
+      <div style="color:red; font-size:18px;"> <%= message %> </div>
+   <% end %>
+  </div>
+
+  <div>
+    <%= form.label :Enter_Body_value %><br>
+    <%= form.text_area :body %>
+    <% @article.errors.full_messages_for(:body).each do |message| %>
+      <div style="color:red; font-size:18px;"> <%= message %> </div>
+   <% end %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

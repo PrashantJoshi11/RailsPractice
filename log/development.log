@@ -1799,3 +1799,71 @@ Processing by ArticlesController#show as HTML
 Completed 200 OK in 136ms (Views: 102.7ms | ActiveRecord: 1.2ms | Allocations: 89701)
 
 
+Started GET "/" for ::1 at 2023-05-25 10:18:55 +0530
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.7ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (Duration: 28.2ms | Allocations: 16709)
+  Rendered layout layouts/application.html.erb (Duration: 128.5ms | Allocations: 50696)
+Completed 200 OK in 159ms (Views: 131.7ms | ActiveRecord: 1.9ms | Allocations: 58897)
+
+
+Started GET "/articles/new" for ::1 at 2023-05-25 10:18:59 +0530
+Processing by ArticlesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/_Form.html.erb (Duration: 16.7ms | Allocations: 3519)
+  Rendered articles/new.html.erb within layouts/application (Duration: 18.3ms | Allocations: 3781)
+  Rendered layout layouts/application.html.erb (Duration: 26.8ms | Allocations: 5966)
+Completed 200 OK in 30ms (Views: 28.6ms | ActiveRecord: 0.0ms | Allocations: 6389)
+
+
+Started POST "/articles" for ::1 at 2023-05-25 10:19:09 +0530
+Processing by ArticlesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "article"=>{"title"=>"Fifth", "body"=>"this is fifth time'\n"}, "commit"=>"Create Article"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/articles_controller.rb:15:in `create'
+  [1m[36mArticle Create (2.1ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Fifth"], ["body", "this is fifth time'\n"], ["created_at", "2023-05-25 04:49:09.701243"], ["updated_at", "2023-05-25 04:49:09.701243"]]
+  ↳ app/controllers/articles_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (5.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/articles_controller.rb:15:in `create'
+Redirected to http://localhost:3000/articles/6
+Completed 302 Found in 22ms (ActiveRecord: 8.1ms | Allocations: 3505)
+
+
+Started GET "/articles/6" for ::1 at 2023-05-25 10:19:09 +0530
+Processing by ArticlesController#show as TURBO_STREAM
+  Parameters: {"id"=>"6"}
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:6:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (Duration: 40.1ms | Allocations: 23520)
+  Rendered layout layouts/application.html.erb (Duration: 45.4ms | Allocations: 25697)
+Completed 200 OK in 55ms (Views: 45.6ms | ActiveRecord: 1.2ms | Allocations: 28394)
+
+
+Started GET "/articles/new" for ::1 at 2023-05-25 10:19:20 +0530
+Processing by ArticlesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/_Form.html.erb (Duration: 3.9ms | Allocations: 934)
+  Rendered articles/new.html.erb within layouts/application (Duration: 4.4ms | Allocations: 990)
+  Rendered layout layouts/application.html.erb (Duration: 9.6ms | Allocations: 3175)
+Completed 200 OK in 11ms (Views: 10.3ms | ActiveRecord: 0.0ms | Allocations: 3512)
+
+
+Started GET "/" for ::1 at 2023-05-25 10:19:21 +0530
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (1.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (Duration: 3.0ms | Allocations: 782)
+  Rendered layout layouts/application.html.erb (Duration: 18.1ms | Allocations: 3131)
+Completed 200 OK in 20ms (Views: 18.2ms | ActiveRecord: 1.0ms | Allocations: 3457)
+
+
